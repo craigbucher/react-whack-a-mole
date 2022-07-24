@@ -21,8 +21,8 @@ function App() {
 
   function getDensState() {
     return new Array(9).fill({}).map(() => {
-      return { 
-        isMoleVisible: [true,false][Math.round(Math.random())] 
+      return {
+        isMoleVisible: [true, false][Math.round(Math.random())]
       }
     })
   }
@@ -34,17 +34,17 @@ function App() {
   // renders
   const denElements = dens.map((den, index) => {
     return (
-      <Mole key={`mole-${index}`} />
+      <Mole key={`mole-${index}`} dens={den.isMoleVisible} whack={onMoleWhacked} />
     )
   })
 
   return (
     <div className="App">
       <h1>WHACK-A-MOLE!</h1>
-      <h2>Points: { points }</h2>
+      <h2>Points: {points}</h2>
       <div className="dens">
-        { denElements }
-        <div style={{clear: 'both'}}></div>
+        {denElements}
+        <div style={{ clear: 'both' }}></div>
       </div>
     </div>
   )
